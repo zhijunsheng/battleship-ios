@@ -81,11 +81,11 @@
 			children = (
 				C063A403226CC64A007CD1E5 /* AppDelegate.swift */,
 				C063A405226CC64A007CD1E5 /* ViewController.swift */,
+				7530F34C240619D500CFE732 /* SeaView.swift */,
 				C063A407226CC64A007CD1E5 /* Main.storyboard */,
 				C063A40A226CC64C007CD1E5 /* Assets.xcassets */,
 				C063A40C226CC64C007CD1E5 /* LaunchScreen.storyboard */,
 				C063A40F226CC64C007CD1E5 /* Info.plist */,
-				7530F34C240619D500CFE732 /* SeaView.swift */,
 			);
 			path = Battleship;
 			sourceTree = "<group>";

@@ -18,6 +18,7 @@ class SeaView: UIView {
     override func draw(_ rect: CGRect) {
         side = bounds.width / CGFloat(cols + 1)
         grid()
+        ships()
         holes()
         numChars()
     }
@@ -39,6 +40,7 @@ class SeaView: UIView {
     }
     
     func holes() {
+        UIColor.black.setFill()
         for i in 1...cols {
             for j in 0..<rows {
                 UIBezierPath(arcCenter: CGPoint(x: CGFloat(i) * side + side / 2, y: CGFloat(j) * side + side / 2), radius: side / 6, startAngle: 0, endAngle: 2 * CGFloat.pi, clockwise: true).fill()
@@ -63,8 +65,25 @@ class SeaView: UIView {
             attributedString2.draw(in: stringRect2)
         }
     }
+    
+    func ships() {
+        let carrier = UIImage(named: "carrier")
+        carrier?.draw(in: CGRect(x: side, y: side, width: side * 5, height: side))
+        let battleship = UIImage(named: "battleship")
+        battleship?.draw(in: CGRect(x: side, y: side * 2, width: side * 4, height: side))
+        let cruiser = UIImage(named: "cruiser")
+        cruiser?.draw(in: CGRect(x: side, y: side * 3, width: side * 3, height: side))
+        let submarine = UIImage(named: "submarine")
+        submarine?.draw(in: CGRect(x: side, y: side * 4, width: side * 3, height: side))
+        let destroyer = UIImage(named: "destroyer")
+        destroyer?.draw(in: CGRect(x: side, y: side * 5, width: side * 2, height: side))
+    }
 }
 
 /*
- ©  ¥ 3314γ
- */
+           —————> 3314G(γ) <—————
+                    /|\
+                     |
+ Dis team got into provincials for vex IQ
+ 
+*/
