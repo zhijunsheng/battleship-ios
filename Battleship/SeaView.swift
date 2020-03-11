@@ -67,21 +67,32 @@ class SeaView: UIView {
     }
     
     func ships() {
-        let carrier = UIImage(named: "carrier")
+        let carrier = UIImage(named: "carrier_h")
         carrier?.draw(in: CGRect(x: side, y: side, width: side * 5, height: side))
-        let battleship = UIImage(named: "battleship")
+        let battleship = UIImage(named: "battleship_h")
         battleship?.draw(in: CGRect(x: side, y: side * 2, width: side * 4, height: side))
-        let cruiser = UIImage(named: "cruiser")
+        let cruiser = UIImage(named: "cruiser_h")
         cruiser?.draw(in: CGRect(x: side, y: side * 3, width: side * 3, height: side))
-        let submarine = UIImage(named: "submarine")
+        let submarine = UIImage(named: "submarine_h")
         submarine?.draw(in: CGRect(x: side, y: side * 4, width: side * 3, height: side))
-        let destroyer = UIImage(named: "destroyer")
+        let destroyer = UIImage(named: "destroyer_h")
         destroyer?.draw(in: CGRect(x: side, y: side * 5, width: side * 2, height: side))
+        let carrier1 = UIImage(named: "carrier_v")
+        carrier1?.draw(in: CGRect(x: side * 6, y: side, width: side, height: side * 5))
+        let battleship1 = UIImage(named: "battleship_v")
+        battleship1?.draw(in: CGRect(x: side * 7, y: side, width: side, height: side * 4))
+        let cruiser1 = UIImage(named: "cruiser_v")
+        cruiser1?.draw(in: CGRect(x: side * 8, y: side, width: side, height: side * 3))
+        let submarine1 = UIImage(named: "submarine_v")
+        submarine1?.draw(in: CGRect(x: side * 9, y: side, width: side, height: side * 3))
+        let destroyer1 = UIImage(named: "destroyer_v")
+        destroyer1?.draw(in: CGRect(x: side * 10, y: side, width: side, height: side * 2))
     }
 }
 
 /*
            —————> 3314G(γ) <—————
+                     _
                     /|\
                      |
  Dis team got into provincials for vex IQ

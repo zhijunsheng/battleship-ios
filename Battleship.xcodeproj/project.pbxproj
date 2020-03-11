@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		752D7691240F3AC100BC0155 /* Type.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752D7690240F3AC100BC0155 /* Type.swift */; };
+		752D7693240F3C9F00BC0155 /* Ship.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752D7692240F3C9F00BC0155 /* Ship.swift */; };
+		752D7695241323F300BC0155 /* Sea.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752D7694241323F300BC0155 /* Sea.swift */; };
+		752D769724132B6800BC0155 /* Point.swift in Sources */ = {isa = PBXBuildFile; fileRef = 752D769624132B6800BC0155 /* Point.swift */; };
 		7530F34D240619D500CFE732 /* SeaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7530F34C240619D500CFE732 /* SeaView.swift */; };
 		C063A404226CC64A007CD1E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C063A403226CC64A007CD1E5 /* AppDelegate.swift */; };
 		C063A406226CC64A007CD1E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C063A405226CC64A007CD1E5 /* ViewController.swift */; };
@@ -27,6 +31,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		752D7690240F3AC100BC0155 /* Type.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Type.swift; sourceTree = "<group>"; };
+		752D7692240F3C9F00BC0155 /* Ship.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ship.swift; sourceTree = "<group>"; };
+		752D7694241323F300BC0155 /* Sea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sea.swift; sourceTree = "<group>"; };
+		752D769624132B6800BC0155 /* Point.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Point.swift; sourceTree = "<group>"; };
 		7530F34C240619D500CFE732 /* SeaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeaView.swift; sourceTree = "<group>"; };
 		C063A400226CC64A007CD1E5 /* Battleship.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Battleship.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C063A403226CC64A007CD1E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +88,10 @@
 			isa = PBXGroup;
 			children = (
 				C063A403226CC64A007CD1E5 /* AppDelegate.swift */,
+				752D769624132B6800BC0155 /* Point.swift */,
+				752D7690240F3AC100BC0155 /* Type.swift */,
+				752D7692240F3C9F00BC0155 /* Ship.swift */,
+				752D7694241323F300BC0155 /* Sea.swift */,
 				C063A405226CC64A007CD1E5 /* ViewController.swift */,
 				7530F34C240619D500CFE732 /* SeaView.swift */,
 				C063A407226CC64A007CD1E5 /* Main.storyboard */,
@@ -149,9 +161,11 @@
 				TargetAttributes = {
 					C063A3FF226CC64A007CD1E5 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1120;
 					};
 					C063A413226CC64D007CD1E5 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1120;
 						TestTargetID = C063A3FF226CC64A007CD1E5;
 					};
 				};
@@ -203,6 +217,10 @@
 				7530F34D240619D500CFE732 /* SeaView.swift in Sources */,
 				C063A406226CC64A007CD1E5 /* ViewController.swift in Sources */,
 				C063A404226CC64A007CD1E5 /* AppDelegate.swift in Sources */,
+				752D7691240F3AC100BC0155 /* Type.swift in Sources */,
+				752D769724132B6800BC0155 /* Point.swift in Sources */,
+				752D7693240F3C9F00BC0155 /* Ship.swift in Sources */,
+				752D7695241323F300BC0155 /* Sea.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -374,7 +392,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.goldthumb.Battleship;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -393,7 +411,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.goldthumb.Battleship;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -413,7 +431,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.goldthumb.BattleshipTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Battleship.app/Battleship";
 			};
@@ -434,7 +452,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.goldthumb.BattleshipTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Battleship.app/Battleship";
 			};
