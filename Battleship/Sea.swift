@@ -17,23 +17,23 @@ struct Sea: CustomStringConvertible {
     }
     
     mutating func initC() {
-        ships.append(Ship(type: .destroyer, location: [Point(x: 0, y: 1),
-                                                       Point(x: 1, y: 1)]))
-        ships.append(Ship(type: .cruiser, location: [Point(x: 0, y: 3),
-                                                     Point(x: 1, y: 3),
-                                                     Point(x: 2, y: 3)]))
-        ships.append(Ship(type: .submarine, location: [Point(x: 0, y: 5),
-                                                       Point(x: 1, y: 5),
-                                                       Point(x: 2, y: 5)]))
-        ships.append(Ship(type: .battleship, location: [Point(x: 5, y: 7),
-                                                        Point(x: 5, y: 6),
-                                                        Point(x: 5, y: 5),
-                                                        Point(x: 5, y: 4)]))
-        ships.append(Ship(type: .carrier, location: [Point(x: 0, y: 9),
-                                                     Point(x: 1, y: 9),
-                                                     Point(x: 2, y: 9),
-                                                     Point(x: 3, y: 9),
-                                                     Point(x: 4, y: 9)]))
+        ships.append(Ship(type: .destroyer, location: [Point(x: 0, y: 0),
+                                                       Point(x: 1, y: 0)]))
+        ships.append(Ship(type: .cruiser, location: [Point(x: 0, y: 2),
+                                                     Point(x: 1, y: 2),
+                                                     Point(x: 2, y: 2)]))
+        ships.append(Ship(type: .submarine, location: [Point(x: 0, y: 4),
+                                                       Point(x: 1, y: 4),
+                                                       Point(x: 2, y: 4)]))
+        ships.append(Ship(type: .battleship, location: [Point(x: 0, y: 6),
+                                                        Point(x: 1, y: 6),
+                                                        Point(x: 2, y: 6),
+                                                        Point(x: 3, y: 6)]))
+        ships.append(Ship(type: .carrier, location: [Point(x: 0, y: 8),
+                                                     Point(x: 1, y: 8),
+                                                     Point(x: 2, y: 8),
+                                                     Point(x: 3, y: 8),
+                                                     Point(x: 4, y: 8)]))
     }
     
     var description: String {
@@ -42,7 +42,7 @@ struct Sea: CustomStringConvertible {
         for sx in 0..<10 {
             sea += sx == 0 ? "10 " : " \(10 - sx) "
             for sy in 0..<10 {
-                if isOn(x: sy, y: 10 - sx) {
+                if isOn(x: sy, y: 10 - (sx + 1)) {
                     sea += "◘ "
                 } else {
                     sea.append(". ")
