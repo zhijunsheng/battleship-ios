@@ -15,6 +15,8 @@ class SeaView: UIView {
     let chars = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
     var side: CGFloat = 0
     
+    
+    
     override func draw(_ rect: CGRect) {
         side = bounds.width / CGFloat(cols + 1)
         grid()

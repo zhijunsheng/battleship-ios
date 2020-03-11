@@ -25,10 +25,10 @@ struct Sea: CustomStringConvertible {
         ships.append(Ship(type: .submarine, location: [Point(x: 0, y: 5),
                                                        Point(x: 1, y: 5),
                                                        Point(x: 2, y: 5)]))
-        ships.append(Ship(type: .battleship, location: [Point(x: 2, y: 7),
-                                                        Point(x: 3, y: 7),
-                                                        Point(x: 4, y: 7),
-                                                        Point(x: 5, y: 7)]))
+        ships.append(Ship(type: .battleship, location: [Point(x: 5, y: 7),
+                                                        Point(x: 5, y: 6),
+                                                        Point(x: 5, y: 5),
+                                                        Point(x: 5, y: 4)]))
         ships.append(Ship(type: .carrier, location: [Point(x: 0, y: 9),
                                                      Point(x: 1, y: 9),
                                                      Point(x: 2, y: 9),
