@@ -12,7 +12,7 @@ import XCTest
 class BattleshipTests: XCTestCase {
 
 
-    func testExample() {
+    func testExemple() {
         var s = Sea()
         s.initC()
         print(s)

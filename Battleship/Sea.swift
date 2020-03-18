@@ -16,24 +16,26 @@ struct Sea: CustomStringConvertible {
         
     }
     
+    func isThisLocationUseless(loc: [Point]) -> Bool {
+        for point in loc {
+            if pieceOn(x: point.x, y: point.y) != nil {
+                return true
+            }
+        }
+        return false
+    }
+    
     mutating func initC() {
-        ships.append(Ship(type: .destroyer, location: [Point(x: 0, y: 0),
-                                                       Point(x: 1, y: 0)]))
-        ships.append(Ship(type: .cruiser, location: [Point(x: 0, y: 2),
-                                                     Point(x: 1, y: 2),
-                                                     Point(x: 2, y: 2)]))
-        ships.append(Ship(type: .submarine, location: [Point(x: 0, y: 4),
-                                                       Point(x: 1, y: 4),
-                                                       Point(x: 2, y: 4)]))
-        ships.append(Ship(type: .battleship, location: [Point(x: 0, y: 6),
-                                                        Point(x: 1, y: 6),
-                                                        Point(x: 2, y: 6),
-                                                        Point(x: 3, y: 6)]))
-        ships.append(Ship(type: .carrier, location: [Point(x: 0, y: 8),
-                                                     Point(x: 1, y: 8),
-                                                     Point(x: 2, y: 8),
-                                                     Point(x: 3, y: 8),
-                                                     Point(x: 4, y: 8)]))
+        let shipLengths = [5, 4, 3, 3, 2]
+        let shipTypes: [Type] = [.carrier, .battleship, .submarine, .cruiser, .destroyer]
+        var idx = 0
+        while ships.count < 5 {
+            let ship = generateRandShipWith(length: shipLengths[idx])
+            if !isThisLocationUseless(loc: ship) {
+                ships.append(Ship(type: shipTypes[idx], location: ship))
+                idx += 1
+            }
+        }
     }
     
     var description: String {
@@ -42,8 +44,19 @@ struct Sea: CustomStringConvertible {
         for sx in 0..<10 {
             sea += sx == 0 ? "10 " : " \(10 - sx) "
             for sy in 0..<10 {
-                if isOn(x: sy, y: 10 - (sx + 1)) {
-                    sea += "◘ "
+                if let ship = pieceOn(x: sy, y: 10 - (sx + 1)) {
+                    switch ship.type {
+                    case .battleship:
+                        sea += "B "
+                    case .carrier:
+                        sea += "C "
+                    case .cruiser:
+                        sea += "c "
+                    case .destroyer:
+                        sea += "d "
+                    case .submarine:
+                        sea += "s "
+                    }
                 } else {
                     sea.append(". ")
                 }
@@ -52,17 +65,38 @@ struct Sea: CustomStringConvertible {
         }
         sea += "   A B C D E F G H I J"
         // "Ⅰ Ⅱ Ⅲ Ⅳ Ⅴ Ⅵ Ⅶ Ⅷ Ⅸ Ⅹ"
+        // "I II III IV V
         return sea
     }
     
-    func isOn(x: Int, y: Int) -> Bool {
+    func pieceOn(x: Int, y: Int) -> Ship? {
         for ship in ships {
             for point in ship.location {
                 if point.x == x && point.y == y {
-                    return true
+                    return ship
                 }
             }
         }
-        return false
+        return nil
+    }
+    
+    func generateRandShipWith(length: Int) -> [Point] {
+        while true {
+            let shipHeadYOrX = Int(arc4random()) % (10 - length)
+            let dir = Int(arc4random() % 2)
+            var loc: [Point] = []
+            if dir == 0 {
+                let shipHeadX = Int(arc4random() % 10)
+                for i in 0..<length {
+                    loc.append(Point(x: shipHeadX, y: shipHeadYOrX + i))
+                }
+            } else {
+                let shipHeadY = Int(arc4random() % 10)
+                for i in 0..<length {
+                    loc.append(Point(x: shipHeadYOrX + i, y: shipHeadY))
+                }
+            }
+            return loc
+        }
     }
 }
