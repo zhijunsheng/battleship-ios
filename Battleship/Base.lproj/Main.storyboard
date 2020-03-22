@@ -19,9 +19,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="52f-8b-re8" customClass="BoardView" customModule="Battleship" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="768"/>
                                 <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="52f-8b-re8" secondAttribute="height" multiplier="1:1" id="b0I-vO-sUp"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="0zU-1i-01a" appends="YES" id="nUL-i5-e4g"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -32,8 +36,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="boardView" destination="52f-8b-re8" id="hPG-nH-qJ7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="0zU-1i-01a">
+                    <connections>
+                        <action selector="fire:" destination="BYZ-38-t0r" id="D5s-0b-hSC"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="138.28125" y="95.5078125"/>
         </scene>
