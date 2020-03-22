@@ -9,21 +9,29 @@
 import UIKit
 
 class BoardView: UIView {
-    let cellside: CGFloat = 40
-    let orgX: CGFloat = 80
-    let orgY = 90
-    var col: Int = -1
+    let cellside: CGFloat = 70
+    let orgX: CGFloat = 30
+    let orgY: CGFloat = 30
+    let cols: Int = 10
+    let rows: Int = 10
     
     override func draw(_ rect: CGRect) {
-        col = Int((bounds.width - orgX) / cellside)
-        
+        drawBoard()
     }
     
-    func drawBoard()  {
+    // carrier, battlership, cruiser, submarine, destroyer
+    
+    func drawBoard() {
         let pencil = UIBezierPath()
-        for i in 0 ..< col {
-            
+        for i in 0 ..< cols + 1 {
+            pencil.move(to: CGPoint(x: orgX + cellside * CGFloat(i), y: orgY))
+            pencil.addLine(to: CGPoint(x: orgX + cellside * CGFloat(i), y: orgY + cellside * CGFloat(rows)))
         }
+        
+        for i in 0 ..< rows + 1 {
+            pencil.move(to: CGPoint(x: orgX, y: orgY + cellside * CGFloat(i)))
+            pencil.addLine(to: CGPoint(x: orgX + cellside * CGFloat(rows), y: orgY + cellside * CGFloat(i)))
+        }
+        pencil.stroke()
     }
-
 }
