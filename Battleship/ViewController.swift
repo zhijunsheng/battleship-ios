@@ -10,11 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var sea: Sea = Sea()
     @IBOutlet weak var seaView: SeaView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        sea.initC()
+        seaView.ships = sea.ships
+        seaView.setNeedsDisplay()
+        print(sea)
     }
 
     @IBAction func hitDetecter(_ sender: UITapGestureRecognizer) {

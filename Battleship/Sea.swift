@@ -12,10 +12,6 @@ struct Sea: CustomStringConvertible {
    
     var ships: [Ship] = []
     
-    func cDeploy() {
-        
-    }
-    
     func isThisLocationUseless(loc: [Point]) -> Bool {
         for point in loc {
             if pieceOn(x: point.x, y: point.y) != nil {

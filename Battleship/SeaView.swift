@@ -14,13 +14,12 @@ class SeaView: UIView {
     let nums = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
     let chars = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"]
     var side: CGFloat = 0
-    
-    
+    var ships: [Ship] = []
     
     override func draw(_ rect: CGRect) {
         side = bounds.width / CGFloat(cols + 1)
         grid()
-        ships()
+        depShips()
         holes()
         numChars()
     }
@@ -68,27 +67,36 @@ class SeaView: UIView {
         }
     }
     
-    func ships() {
-        let carrier = UIImage(named: "carrier_h")
-        carrier?.draw(in: CGRect(x: side, y: side, width: side * 5, height: side))
-        let battleship = UIImage(named: "battleship_h")
-        battleship?.draw(in: CGRect(x: side, y: side * 2, width: side * 4, height: side))
-        let cruiser = UIImage(named: "cruiser_h")
-        cruiser?.draw(in: CGRect(x: side, y: side * 3, width: side * 3, height: side))
-        let submarine = UIImage(named: "submarine_h")
-        submarine?.draw(in: CGRect(x: side, y: side * 4, width: side * 3, height: side))
-        let destroyer = UIImage(named: "destroyer_h")
-        destroyer?.draw(in: CGRect(x: side, y: side * 5, width: side * 2, height: side))
-        let carrier1 = UIImage(named: "carrier_v")
-        carrier1?.draw(in: CGRect(x: side * 6, y: side, width: side, height: side * 5))
-        let battleship1 = UIImage(named: "battleship_v")
-        battleship1?.draw(in: CGRect(x: side * 7, y: side, width: side, height: side * 4))
-        let cruiser1 = UIImage(named: "cruiser_v")
-        cruiser1?.draw(in: CGRect(x: side * 8, y: side, width: side, height: side * 3))
-        let submarine1 = UIImage(named: "submarine_v")
-        submarine1?.draw(in: CGRect(x: side * 9, y: side, width: side, height: side * 3))
-        let destroyer1 = UIImage(named: "destroyer_v")
-        destroyer1?.draw(in: CGRect(x: side * 10, y: side, width: side, height: side * 2))
+    func depShips() {
+       /*
+                             BBBB
+              BBBBB         BBBBBBB BBBB     BBBBB
+             BBBBBBB BBBB  BBBBBBBBB BBBB   BBBBBBB BBBB
+        BBB  BBBBBBB       BBBBBBBBB        BBBBBBB          BBBBBB
+         BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB B BB
+          BB B B B B B B B B B B B B B B B B B B B B B B B B BB
+            BBB B B B B B B B B B B B B B B B B B B B B BBB
+               BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB
+         */
+        for ship in ships {
+            print(ship)
+            switch ship.type {
+            case .battleship:
+                if isHorizontal(loc: ship.location) {
+                    let battleship = UIImage(named: "battleship_h")
+                    battleship?.draw(in: CGRect(x: side * CGFloat(ship.location[0].x + 1), y: side * CGFloat(rows - ship.location[0].y - 1), width: side * 4, height: side))
+                } else {
+                    let battleship = UIImage(named: "battleship_v")
+                    battleship?.draw(in: CGRect(x: side * CGFloat(ship.location[ship.location.count - 1].x + 1), y: side * CGFloat(rows - ship.location[ship.location.count - 1].y - 1), width: side, height: side * 4))
+                }
+            default:
+                break
+            }
+        }
+    }
+    
+    func isHorizontal(loc: [Point]) -> Bool {
+        return loc[0].y == loc[loc.count - 1].y
     }
 }
 
